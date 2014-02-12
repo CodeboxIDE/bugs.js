@@ -32,6 +32,9 @@ Run until current method returns.
 ### .step()
 Execute and step into function
 
+### .stepi()
+Execute current instruction
+
 ### .continue()
 Keep running from here
 
