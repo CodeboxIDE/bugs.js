@@ -2,9 +2,9 @@ var through = require('event-stream').through;
 
 var bugs = require('../');
 
-var buger = bugs.pdb(process.argv[2]);
-//var proc = pty.spawn('jdb', [process.argv[2]]);
-//var proc = pty.spawn('gdb', ['-q', '--interpreter=mi', process.argv[2]]);
+var lang = 'jdb';
+
+var buger = bugs[lang](process.argv[2]);
 
 var run = buger.runner;
 
