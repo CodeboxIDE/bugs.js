@@ -41,3 +41,4 @@ node_modules
 # Ignore test stuff
 /test/hello
 /test/hello.dSYM/
+/test/*.class
