@@ -11,7 +11,11 @@ A NodeJS library providing a unified interface to common debuggers (`gdb`, `jdb`
 
 Right now we interface with the current debugger through their command line programs and smartly writing and reading from their `stdout`/`stdin`.
 
-
+## Install
+:warning: *Warning*: `bugs` is not yet published to npm
+```
+npm install bugs
+```
 
 # Commands
 
