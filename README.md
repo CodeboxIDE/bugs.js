@@ -1,7 +1,7 @@
 bugs
 ====
 
-A NodeJS library providing a unified interface to common debuggers (`gdb`, `jdb`, `pdb`, ...)
+A NodeJS library providing a unified interface to common debuggers (`gdb`, `jdb`, `pdb`, ...). It's meant for building developer tools (debug tools, IDEs, etc ...), built for [Codebox](https://github.com/FriendCode/codebox)
 
 ## Supported debuggers
   - `gdb` : `c/c++` (and any native binaries really)
