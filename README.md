@@ -123,6 +123,10 @@ Print backtrace of current stack
 ### `.list()`
 List source code of current location
 
+
+### `.locals()`
+Get local variables of current stack
+
 ## Breakpoints
 
 ### `.breakpoints()`
