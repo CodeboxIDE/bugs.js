@@ -17,6 +17,60 @@ Right now we interface with the current debugger through their command line prog
 npm install bugs
 ```
 
+## Examples
+
+#### `python` with `pdb`
+
+```js
+var bugs = require('bugs');
+
+// Use pdb to debug a python file
+var dbg = bugs.pdb('./some_file.py');
+
+// Debug "main" function
+dbg.break('main')
+.then(function() {
+    // Run debugger
+    return dbg.run();
+})
+.then(function() {
+    // Get backtrace
+    return dbg.backtrace();
+})
+.then(function(trace) {
+    // Display trace & quit
+    console.log('trace =', trace)
+    return dbg.quit();
+})
+.done();
+```
+
+#### Native binaries with `gdb`
+
+```js
+var bugs = require('bugs');
+
+// Use pdb to debug a python file
+var dbg = bugs.gdb('ls');
+
+// Debug "main" function
+dbg.break('main')
+.then(function() {
+    // Run "ls" on a given folder
+    return dbg.run('-al /tmp');
+})
+.then(function() {
+    // Get backtrace
+    return dbg.backtrace();
+})
+.then(function(trace) {
+    // Display trace & quit
+    console.log('trace =', trace)
+    return dbg.quit();
+})
+.done();
+```
+
 # Commands
 
 ## General
