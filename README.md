@@ -60,3 +60,6 @@ Lists currently set breakpoints
 
 ### `.breakpoint(location)`
 Set a new breakpoint at `location` (`location` can be a line number, function address ...)
+
+### `.clear(location)`
+Clear breakproint for `location` (see above for `location`)
