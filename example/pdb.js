@@ -1,3 +1,6 @@
+var Q = require('q');
+var _ = require('lodash');
+
 var bugs = require('../');
 
 if(!process.argv[2]) {
@@ -9,24 +12,21 @@ if(!process.argv[2]) {
 // the file is supplied via a command line arg
 var dbg = bugs.pdb(process.argv[2]);
 
-// Debug "main" function
-dbg.init()
-.then(function() {
-    return dbg.break('main');
-})
-.then(function() {
-    // Run debugger
-    return dbg.run();
-})
-.then(function() {
-    // Get backtrace
-    return dbg.backtrace();
-})
-.then(function(trace) {
-    // Display trace & quit
-    console.log('trace =', trace);
-    return dbg.quit();
-})
-.done(function(err) {
-    console.log('DONE ERR =', err);
-});
+var log = function(name) {
+    return function(x) {
+        console.log(name+' =', x);
+    };
+};
+
+// Run all our debug stuff in series
+[
+    _.partial(dbg.break, 'main'),
+    dbg.run,
+    dbg.backtrace,
+    log('trace'),
+    dbg.step,
+    dbg.locals,
+    log('locals'),
+    dbg.quit
+].reduce(Q.when, dbg.init())
+.done();
