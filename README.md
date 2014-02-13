@@ -28,7 +28,10 @@ var bugs = require('bugs');
 var dbg = bugs.pdb('./some_file.py');
 
 // Debug "main" function
-dbg.break('main')
+dbg.init()
+.then(function() {
+    return dbg.break('main');
+})
 .then(function() {
     // Run debugger
     return dbg.run();
@@ -54,7 +57,10 @@ var bugs = require('bugs');
 var dbg = bugs.gdb('ls');
 
 // Debug "main" function
-dbg.break('main')
+dbg.init()
+.then(function() {
+    return dbg.break('main');
+})
 .then(function() {
     // Run "ls" on a given folder
     return dbg.run('-al /tmp');

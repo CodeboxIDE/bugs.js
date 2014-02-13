@@ -10,7 +10,10 @@ if(!process.argv[2]) {
 var dbg = bugs.pdb(process.argv[2]);
 
 // Debug "main" function
-dbg.break('main')
+dbg.init()
+.then(function() {
+    return dbg.break('main');
+})
 .then(function() {
     // Run debugger
     return dbg.run();

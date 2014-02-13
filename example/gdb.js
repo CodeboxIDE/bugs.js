@@ -5,7 +5,10 @@ var bugs = require('../');
 var dbg = bugs.gdb('ls');
 
 // Debug "main" function
-dbg.break('main')
+dbg.init()
+.then(function() {
+    return dbg.break('main');
+})
 .then(function() {
     // Run "ls" on a given folder
     return dbg.run('-al /tmp');
