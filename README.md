@@ -47,6 +47,8 @@ Run to the next line of the current function
 ### .eval(code)
 Evaluate a string of `code` and print the result
 
+### .backtrace()
+Print backtrace of current stack
 
 ## Breakpoints
 
