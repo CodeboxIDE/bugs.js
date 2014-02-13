@@ -50,7 +50,7 @@ dbg.break('main')
 ```js
 var bugs = require('bugs');
 
-// Use pdb to debug a python file
+// Use gdb to unix "ls" binary
 var dbg = bugs.gdb('ls');
 
 // Debug "main" function
