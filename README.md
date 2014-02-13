@@ -17,46 +17,46 @@ Right now we interface with the current debugger through their command line prog
 
 ## General
 
-### .run(arg1, arg2, ...)
+### `.run(arg1, arg2, ...)`
 Run file to debug with given args
 
-### .quit()
+### `.quit()`
 Quit current instance of the debugger (this isn't terribly useful)
 
 
 ## Movement
 
-### .finish()
+### `.finish()`
 Run until current method returns.
 
-### .step()
+### `.step()`
 Execute and step into function
 
-### .stepi()
+### `.stepi()`
 Execute current instruction
 
-### .continue()
+### `.continue()`
 Keep running from here
 
-### .next()
+### `.next()`
 Run to the next line of the current function
 
 
 ## Examination
 
-### .eval(code)
+### `.eval(code)`
 Evaluate a string of `code` and print the result
 
-### .backtrace()
+### `.backtrace()`
 Print backtrace of current stack
 
-### .list()
+### `.list()`
 List source code of current location
 
 ## Breakpoints
 
-### .breakpoints()
+### `.breakpoints()`
 Lists currently set breakpoints
 
-### .breakpoint(location)
+### `.breakpoint(location)`
 Set a new breakpoint at `location` (`location` can be a line number, function address ...)
