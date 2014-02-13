@@ -102,6 +102,9 @@ Run to the next line of the current function
 ### `.up()`
 Move one level up in the stack trace
 
+### `.down()`
+Move one level down in the stack trace
+
 
 ## Examination
 
