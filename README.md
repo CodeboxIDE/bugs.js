@@ -99,6 +99,9 @@ Keep running from here
 ### `.next()`
 Run to the next line of the current function
 
+### `.up()`
+Move one level up in the stack trace
+
 
 ## Examination
 
