@@ -5,7 +5,7 @@ A NodeJS library providing a unified interface to common debuggers (`gdb`, `jdb`
 
 ## Supported debuggers
   - `gdb` : `c/c++` (and any native binaries really)
-  - `jvm` : `java` (and anything running on the JVM)
+  - `jdb` : `java` (and anything running on the JVM)
   - `pdb` : `python`
   - Feel free to send Pull Requests for more
 
