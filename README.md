@@ -50,6 +50,9 @@ Evaluate a string of `code` and print the result
 ### .backtrace()
 Print backtrace of current stack
 
+### .list()
+List source code of current location
+
 ## Breakpoints
 
 ### .breakpoints()
