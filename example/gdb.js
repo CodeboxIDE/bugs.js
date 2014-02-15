@@ -1,25 +1,33 @@
-// Requires
+var Q = require('q');
+var _ = require('lodash');
+
+var path = require('path');
+
 var bugs = require('../');
 
-// Use gdb to debug the unix "ls" binary
-var dbg = bugs.gdb('ls');
 
-// Debug "main" function
-dbg.init()
-.then(function() {
-    return dbg.break('main');
-})
-.then(function() {
-    // Run "ls" on a given folder
-    return dbg.run('-al /tmp');
-})
-.then(function() {
-    // Get backtrace
-    return dbg.backtrace();
-})
-.then(function(trace) {
-    // Display trace & quit
-    console.log('trace =', trace);
-    return dbg.quit();
-})
+// Use pdb to debug a python file
+// the file is supplied via a command line arg
+var dbg = bugs.gdb(path.join(__dirname, '../test/hello'));
+
+// A utility method for generating log functions that can be run in series
+var log = function(name) {
+    return function(x) {
+        console.log(name+' =', x);
+    };
+};
+
+// Run all our debug stuff in series
+[
+    _.partial(dbg.break, '17'),
+    function () { return dbg.run(); },
+    dbg.list,
+    log('source code'),
+    dbg.locals,
+    log('locals'),
+    dbg.continue,
+    dbg.list,
+    log('source code'),
+    dbg.quit
+].reduce(Q.when, dbg.init())
 .done();
