@@ -140,3 +140,13 @@ Set a new breakpoint at `location` (`location` can be a line number, function ad
 
 ### `.clear(location)`
 Clear breakproint for `location` (see above for `location`)
+
+
+# Events
+
+### `started`
+Signals when the debugger is ready to receive commands.
+`.init()` resolves when `started` is emitted (you should probably use that).
+
+### `update`
+Provides updates when state of process changes. And updates not request or results of commands executed.
