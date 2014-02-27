@@ -7,6 +7,7 @@ A *NodeJS* library providing a unified interface to common debuggers (`gdb`, `jd
   - `gdb` : `c/c++` (and any native binaries really)
   - `jdb` : `java` (and anything running on the JVM)
   - `pdb` : `python`
+  - `rdb` : `ruby`
   - Feel free to send Pull Requests for more
 
 Right now we interface with the current debugger through their command line programs and smartly writing and reading from their `stdout`/`stdin`.
