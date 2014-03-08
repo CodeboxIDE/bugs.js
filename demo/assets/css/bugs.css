@@ -1,0 +1,31 @@
+
+.pannel {
+	/*height: 5px;
+	width: 5px;*/
+	font-family: monospace;
+	font-size: medium;
+    height: 200px;
+    max-height: 200px;
+}
+
+.scroll {
+	overflow:scroll;
+}
+
+.inline {
+	display:inline;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+.cmd-input {
+    margin-bottom: 5px;
+    border: none;
+    border-radius: 5px;
+    background: #232323;
+    color: #eee;
+    width: 100%;
+    padding: 10px;
+}

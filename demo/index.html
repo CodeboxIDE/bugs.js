@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>GDB</title>
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/bugs.css">
+
+<link rel="icon" href="assets/img/logo.png">
+</head>
+<body>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <h2>
+                Breakpoints:
+            </h2>
+             <input type="text" id="break-in" class="cmd-input">
+            <pre id="break-out" class="pannel"></pre>
+        </div>
+
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+            <h2>
+                Debugger log:
+            </h2>
+            <input type="text" id="dbg-in" class="cmd-input">
+            <pre id="dbg-out" class="pannel"></pre>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <h2>
+                Stacks :
+            </h2>
+            <pre id="stacks-out" class="pannel"></pre>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <h2>
+                Locals :
+            </h2>
+            <pre id="locals-out" class="pannel"></pre>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <h2>Source :</h2>
+            <pre id="source-out" class="pannel scroll"></pre>
+        </div>
+    </div>
+</div>
+
+<script src="main.js"></script>
+<script>
+    debug();
+</script>
+
+</body>
+</html>

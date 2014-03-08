@@ -1,0 +1,167 @@
+body {
+  font-family: Helvetica, sans-serif;
+}
+
+a.navbar-brand {
+  color: #fff;
+  padding: 10px 20px 10px;
+}
+a.navbar-brand > img {
+  width: 40px;
+  height: 40px;
+}
+
+.navbar {
+  border: none;
+}
+
+.navbar-inner {
+  background: #081218 url(/assets/img/header-bg.jpg);
+  padding: 10px 0;
+  height: 80px;
+  background-attachment: fixed;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.navbar .nav.pull-right li {
+  line-height: 42px;
+  display: inline-block;
+}
+.navbar .nav.pull-right a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #f8f8f8;
+  font-size: 14px;
+  font-weight: normal;
+  text-shadow: none;
+}
+.navbar .nav.pull-right li:last-child a {
+  margin-right: 0;
+}
+.navbar .nav.pull-right a:hover {
+  color: #fff;
+  background: none;
+}
+
+.navbar .nav.pull-right a.btn.btn-success:hover {
+  background: #47a447;
+}
+
+#menu {
+  min-height: 800px;
+  border-right: 1px solid #eee;
+  width: 230px;
+  margin-bottom: 100px;
+}
+@media (min-width: 1200px) {
+  #menu {
+    width: 210px;
+  }
+}
+@media (max-width: 979px) and (min-width: 768px) {
+  #menu {
+    width: 140px;
+  }
+}
+@media (max-width: 768px) {
+  #menu {
+    min-height: 0;
+    border: none;
+    position: static;
+    width: auto;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+}
+
+#menu li.nav-header {
+  color: #111;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding-left: 15px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+#menu li a {
+  border-radius: 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+
+  color: #999;
+  text-shadow: none;
+}
+#menu li.active a {
+  background: #eee;
+  color: #999;
+}
+
+/*
+  Cancel out bootstrap's pre styling
+  when highlighting
+*/
+.highlight {
+  border-radius: 5px;
+}
+
+.highlight > pre {
+  border: none;
+  background: none;
+  color: #eee;
+}
+
+/*
+  Mark down title formatting
+*/
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin: 1em 0 15px;
+  padding: 0;
+  font-weight: bold;
+  line-height: 1.7;
+  cursor: text;
+  position: relative;
+}
+
+.markdown-body h1 {
+  margin-top: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body h2 {
+  border-bottom: 1px solid #eee;
+}
+
+/*
+  Give it some room at the bottom
+*/
+.markdown-body {
+  margin-bottom: 100px;
+}
+
+ul.resource-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+ul.resource-list li > a > i {
+  margin-right: 8px;
+}
+
+ul.resource-list > li > a {
+  display: block;
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+ul.resource-list > li > a:hover {
+  background: #f5f5f5;
+  border-radius: 5px;
+  text-decoration: none;
+}

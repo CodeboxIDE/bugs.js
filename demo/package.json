@@ -1,0 +1,15 @@
+{
+    "name": "Bugs.JS",
+    "version": "0.0.1",
+    "main": "index.html",
+    "window": {
+        "title": "Bugs.JS",
+        "min_height": 400,
+        "min_width": 400,
+        "icon": "icons/128.png",
+        "position": "center",
+        "show": true,
+        "toolbar": true,
+        "frame": true
+    }
+}
