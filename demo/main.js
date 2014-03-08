@@ -51,7 +51,7 @@ var setLocals = function(locals) {
 };
 
 var setBreakpoints = function(bkps) {
-    bkps = _.isString(bpks) ? [bpks] : bpks;
+    bkps = _.isString(bkps) ? [bkps] : bkps;
     $breakOut.textContent = _.map(bkps, function(bkp) {
         return bkp;
     }).join('\n')
