@@ -82,6 +82,7 @@ var log = function(name) {
 // Run all our debug stuff in series
 [
     _.partial(dbg.break, '17'),
+    _.partial(dbg.break, '12'),
     function () { return dbg.run(); },
     dbg.list,
     log('source-out'),
