@@ -6,6 +6,7 @@ var $breakIn = document.getElementById('break-in');
 var $breakOut = document.getElementById('break-out');
 
 var $localsOut = document.getElementById('locals-out');
+var $stacksOut = document.getElementById('stacks-out');
 
 var $err = document.getElementById('err-out');
 
@@ -37,13 +38,15 @@ var getState = function() {
     console.log('Getting state');
     return Q.all([
         dbg.breakpoints(),
-        dbg.locals()
+        dbg.locals(),
+        dbg.backtrace(),
     ])
-    .spread(function(bkps, locals) {
+    .spread(function(bkps, locals, stacks) {
         console.log('Got state');
         return {
-          breakpoints: bkps,
-          locals: locals
+            breakpoints: bkps,
+            locals: locals,
+            stacks: stacks,
         };
     })
     .fail(function(err) {
@@ -70,11 +73,20 @@ var setBreakpoints = function(bkps) {
     }).join('\n')
 };
 
+var setStacks = function(stacks) {
+    process.stderr.write('\n'+JSON.stringify(stacks)+'\n');
+    var text = _.map(stacks, function(location) {
+        return [location.filename, location.line].join(' ');
+    }).join('\n');
+    $stacksOut.textContent = text;
+};
+
 var updateState = function() {
     return getState()
     .then(function(state) {
         setBreakpoints(state.breakpoints);
         setLocals(state.locals);
+        setStacks(state.stacks);
     });
 };
 
