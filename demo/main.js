@@ -7,6 +7,18 @@ var $breakOut = document.getElementById('break-out');
 
 var $localsOut = document.getElementById('locals-out');
 
+var $err = document.getElementById('err-out');
+
+// Buttons controlling flow
+var CONTROLS = [
+"start",
+"stop",
+"next",
+"continue",
+"restart",
+];
+
+
 // Node requires
 var Q = require('q');
 var _ = require('lodash');
@@ -15,6 +27,7 @@ var path = require('path');
 
 var bugs = require('../');
 
+// Dirty main function
 function debug() {
 // Use pdb to debug a python file
 // the file is supplied via a command line arg
@@ -53,20 +66,57 @@ var setLocals = function(locals) {
 var setBreakpoints = function(bkps) {
     bkps = _.isString(bkps) ? [bkps] : bkps;
     $breakOut.textContent = _.map(bkps, function(bkp) {
-        return bkp;
+        return [bkp.num, bkp.location.filename, bkp.location.line].join(' ');
     }).join('\n')
 };
 
 var updateState = function() {
-    console.log('Going to update state');
     return getState()
     .then(function(state) {
-        console.log('updating state =', state);
         setBreakpoints(state.breakpoints);
         setLocals(state.locals);
-    })
-    .done();
+    });
 };
+
+var showError = function(err) {
+    console.log('GOT ERROR');
+    $err.textContent = err ? (err.stack || err) : '';
+};
+
+var hookupControl = function(dbg, name) {
+    var el = document.getElementById(['btn', name].join('-'));
+    if(!el) return;
+    
+    // Do action on click
+    el.onclick = function() {
+        console.log("DOING ACTION", name);
+        // Call debugger and show failures
+        dbg[name]()
+        .then(function(res) {
+            return updateState();
+        }, function(err) {
+            showError(err);
+        })
+        .done();
+    }
+};
+
+dbg.runner.on('update', function() {
+    console.log('UPDATE');
+})
+
+// Debug by piping dbg output to stderr
+dbg.stream.on('data', function(data) {
+    process.stderr.write('\nDATA: '+JSON.stringify(data.toString())+'\n');
+});
+
+var hookupControls = function(dbg) {
+    CONTROLS.forEach(function(name) {
+        return hookupControl(dbg, name);
+    });
+};
+
+hookupControls(dbg);
 
 // A utility method for generating log functions that can be run in series
 var log = function(name) {
@@ -91,7 +141,7 @@ var log = function(name) {
     log('locals-out'),
     dbg.list,
     log('source-out'),
-    dbg.quit
+    //dbg.quit
 ].reduce(Q.when, dbg.init())
 .done(function() {
     console.log('DONE');
