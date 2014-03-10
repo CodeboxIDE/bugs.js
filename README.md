@@ -85,6 +85,9 @@ dbg.init()
 ### `.run(arg1, arg2, ...)`
 Run file to debug with given args
 
+### `.restart()`
+Restart program
+
 ### `.quit()`
 Quit current instance of the debugger (this isn't terribly useful)
 
