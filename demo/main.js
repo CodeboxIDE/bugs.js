@@ -117,11 +117,6 @@ dbg.runner.on('update', function() {
     console.log('UPDATE');
 })
 
-// Debug by piping dbg output to stderr
-dbg.stream.on('data', function(data) {
-    process.stderr.write('\nDATA: '+JSON.stringify(data.toString())+'\n');
-});
-
 var hookupControls = function(dbg) {
     CONTROLS.forEach(function(name) {
         return hookupControl(dbg, name);
