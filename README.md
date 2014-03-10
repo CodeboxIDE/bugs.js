@@ -142,6 +142,13 @@ Set a new breakpoint at `location` (`location` can be a line number, function ad
 ### `.clear(location)`
 Clear breakproint for `location` (see above for `location`)
 
+## Aliases
+
+### `.start()`
+Alias to `run`
+
+### `.stop()`
+Alias to `quit`
 
 # Events
 
@@ -151,3 +158,4 @@ Signals when the debugger is ready to receive commands.
 
 ### `update`
 Provides updates when state of process changes. And updates not request or results of commands executed.
+
