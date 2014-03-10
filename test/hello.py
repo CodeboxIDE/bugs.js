@@ -15,7 +15,6 @@ def myf(x):
 
 
 def main():
-    sleep(2)
     x = 34
     print(myf(7))
     print(myf(myf(9)))
