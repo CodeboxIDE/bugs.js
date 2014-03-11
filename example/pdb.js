@@ -21,13 +21,9 @@ var log = function(name) {
 [
     _.partial(dbg.break, '17'),
     function () { return dbg.run(); },
-    dbg.list,
-    log('source code'),
-    dbg.continue,
-    dbg.locals,
-    log('locals'),
-    dbg.list,
-    log('source code'),
-    dbg.quit
+    dbg.breakpoints,
+    log('breakpoints'),
+    dbg.kill,
+    log('kill'),
 ].reduce(Q.when, dbg.init())
 .done();
