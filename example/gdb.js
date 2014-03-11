@@ -19,15 +19,13 @@ var log = function(name) {
 
 // Run all our debug stuff in series
 [
-    _.partial(dbg.break, '17'),
+    _.partial(dbg.break, '13'),
     function () { return dbg.run(); },
-    dbg.list,
-    log('source code'),
     dbg.locals,
     log('locals'),
+    dbg.breakpoints,
+    log('breakpoints'),
     dbg.continue,
-    dbg.list,
-    log('source code'),
     dbg.quit
 ].reduce(Q.when, dbg.init())
 .done();
