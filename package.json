@@ -1,6 +1,6 @@
 {
     "name": "bugs",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "description": "A unified interface to common debuggers (gdb, jdb, pdb, ...) ",
     "main": "index.js",
     "scripts": {
