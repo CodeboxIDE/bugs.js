@@ -56,7 +56,7 @@ var getState = function() {
 }
 
 var setLocals = function(locals) {
-    var text = _.map(locals, function(key, value) {
+    var text = _.map(locals, function(value, key) {
         return [key, value].join(' = ');
     }).join('\n');
     
