@@ -34,8 +34,4 @@ else
   puts "bad"
 end
 
-if aaron.age < 18
-    puts "young"
-else
-    puts "old "
-end
+aaron.hello()
